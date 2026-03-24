@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #3b82f6; /* Blue 500 */
+  --color-secondary: #10b981; /* Emerald 500 */
+  --color-accent: #f59e0b; /* Amber 500 */
+  --color-background: #020617; /* Slate 950 */
+  --color-background-soft: #0f172a; /* Slate 900 */
+  --color-text: #f8fafc; /* Slate 50 */
+  --color-text-dim: #94a3b8; /* Slate 400 */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply bg-background text-text font-sans;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-24 px-6 max-w-7xl mx-auto;
+  }
+  .glass {
+    @apply bg-background-soft/40 backdrop-blur-xl border border-white/5 rounded-3xl p-8 shadow-2xl;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary hover:bg-blue-600 text-white font-bold py-3 px-10 rounded-full transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/30 active:scale-95 cursor-pointer;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center border-2 border-primary/50 text-primary hover:bg-primary/10 font-bold py-3 px-10 rounded-full transition-all duration-500 hover:-translate-y-1 active:scale-95 cursor-pointer;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}

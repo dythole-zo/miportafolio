@@ -1,0 +1,38 @@
+---
+const skillCategories = [
+  {
+    name: "Lenguajes & Bases de Datos",
+    items: ["Python", "SQL", "Java", "MySQL", "PostgreSQL", "SQL Server", "MongoDB", "Cassandra"]
+  },
+  {
+    name: "Automatización & IA",
+    items: ["UiPath", "Automation Anywhere", "RPA", "Python Scripting"]
+  },
+  {
+    name: "Ciberseguridad",
+    items: ["ISO 27001", "NIST", "Pen-testing Básico", "Wireshark", "Nessus"]
+  }
+];
+---
+
+<section id="tech-stack" class="section">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl font-bold mb-4">Competencias <span class="gradient-text">Técnicas</span></h2>
+    <p class="text-text-dim max-w-xl mx-auto">Tecnologías y frameworks que domino para la gestión y protección de la información.</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    {skillCategories.map((category) => (
+      <div class="glass group hover:border-primary/30 transition-all duration-500">
+        <h3 class="text-xl font-bold mb-6 text-primary">{category.name}</h3>
+        <div class="flex flex-wrap gap-3">
+          {category.items.map((item) => (
+            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm font-medium hover:bg-white/10 transition-colors">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

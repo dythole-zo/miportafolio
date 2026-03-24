@@ -1,0 +1,114 @@
+---
+---
+
+<section id="contacto" class="section">
+  <div class="glass max-w-4xl mx-auto p-12">
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-4xl font-bold mb-6">Hablemos</h2>
+        <p class="text-text-dim mb-8 leading-relaxed">
+          ¿Interesado en mejorar la gestión de tus datos o evaluar los riesgos de seguridad de tu infraestructura? 
+          Contáctame para una consultoría profesional.
+        </p>
+        
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <span class="block text-xs text-text-dim">Email</span>
+              <a href="mailto:diego.florezol@unipaz.edu.co" class="font-bold hover:text-primary transition-colors">diego.florezol@unipaz.edu.co</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </div>
+            <div>
+              <span class="block text-xs text-text-dim">GitHub</span>
+              <a href="https://github.com/dythole-zo" target="_blank" class="font-bold hover:text-secondary transition-colors">github.com/dythole-zo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form id="contact-form" class="space-y-6">
+        <div>
+          <label class="block text-sm font-bold mb-2">Nombre *</label>
+          <input type="text" id="name" name="name" required placeholder="Tu nombre" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary transition-colors" />
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-2">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary transition-colors" />
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-2">Mensaje *</label>
+          <textarea id="message" name="message" required rows="4" placeholder="¿En qué puedo ayudarte?" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary transition-colors resize-none"></textarea>
+        </div>
+        <button type="submit" id="submit-btn" class="btn-primary w-full">Enviar Mensaje</button>
+        <p id="form-status" class="text-sm font-medium text-center hidden"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const SUPABASE_URL = 'https://wsmrwwfdcylvgwvdgedg.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndzbXJ3d2ZkY3lsdmd3dmRnZWRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTgzMTgsImV4cCI6MjA4OTkzNDMxOH0.coTFSfaCX3Zxu2WksPLHDRYSKcwd6duNdgpbFni6IN0';
+
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status')!;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = (document.getElementById('name') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement).value.trim();
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value.trim();
+
+    if (!name || !email || !message) {
+      showStatus('Por favor, completa todos los campos.', false);
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      if (res.ok) {
+        showStatus('¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.', true);
+        form.reset();
+      } else {
+        const errorData = await res.json();
+        console.error('Supabase error:', errorData);
+        showStatus('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.', false);
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      showStatus('Error de conexión. Verifica tu internet e inténtalo de nuevo.', false);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar Mensaje';
+    }
+  });
+
+  function showStatus(msg: string, success: boolean) {
+    status.classList.remove('hidden', 'text-red-500', 'text-emerald-500');
+    status.classList.add(success ? 'text-emerald-500' : 'text-red-500');
+    status.textContent = msg;
+    setTimeout(() => status.classList.add('hidden'), 6000);
+  }
+</script>

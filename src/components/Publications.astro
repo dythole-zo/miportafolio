@@ -1,0 +1,29 @@
+---
+const publications = [
+  {
+    title: "Arquitecturas de información para instituciones culturales",
+    journal: "Revista Digital de Innovación",
+    year: "2025",
+    link: "#"
+  }
+];
+---
+
+<section id="publicaciones" class="section">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl font-bold mb-4">Publicaciones</h2>
+    <p class="text-text-dim max-w-xl mx-auto">Contribuciones al conocimiento en el campo de la innovación y la arquitectura de datos.</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto">
+    {publications.map((pub) => (
+      <div class="glass flex flex-col md:flex-row justify-between items-center gap-6 group hover:border-primary/30 transition-all p-10">
+        <div class="text-center md:text-left">
+          <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">“{pub.title}”</h3>
+          <p class="text-text-dim">{pub.journal} • <span class="text-primary font-bold">{pub.year}</span></p>
+        </div>
+        <a href={pub.link} class="btn-outline py-2 px-6 text-sm">Leer Artículo</a>
+      </div>
+    ))}
+  </div>
+</section>

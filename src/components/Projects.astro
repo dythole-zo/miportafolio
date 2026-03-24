@@ -1,0 +1,52 @@
+---
+const projects = [
+  {
+    title: "Sistema de gestión documental",
+    description: "Centralización de archivos y metadatos para optimizar el acceso a la información crítica.",
+    tags: ["MySQL", "Python", "Data Management"],
+    image: "https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=1528&auto=format&fit=crop",
+    result: "Reducción del tiempo de búsqueda en 30%"
+  },
+  {
+    title: "Automatización de procesos",
+    description: "Implementación de bots para mejorar la clasificación y el flujo de información corporativa.",
+    tags: ["RPA", "Python", "UiPath"],
+    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=1474&auto=format&fit=crop",
+    result: "Disminución de errores en 40%"
+  }
+];
+---
+
+<section id="proyectos" class="section">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl font-bold mb-4">Proyectos <span class="gradient-text">Destacados</span></h2>
+    <p class="text-text-dim max-w-xl mx-auto">Soluciones tecnológicas que impulsan la eficiencia y la seguridad de los datos.</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    {projects.map((project) => (
+      <div class="glass p-0 overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
+        <div class="aspect-video overflow-hidden">
+          <img src={project.image} alt={project.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        </div>
+        <div class="p-8">
+          <div class="flex gap-2 mb-4">
+            {project.tags.map(tag => (
+              <span class="text-[10px] uppercase tracking-wider font-bold text-primary px-2 py-1 rounded bg-primary/10">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
+          <p class="text-text-dim mb-6 text-sm leading-relaxed">
+            {project.description}
+          </p>
+          <div class="bg-primary/5 border border-primary/10 p-4 rounded-xl">
+            <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Resultado Impactante</span>
+            <p class="text-white font-medium">{project.result}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
