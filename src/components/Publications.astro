@@ -1,10 +1,9 @@
 ---
 const publications = [
   {
-    title: "Arquitecturas de información para instituciones culturales",
+    title: "Arquitecturas de información para instituciones educativas",
     journal: "Revista Digital de Innovación",
-    year: "2025",
-    link: "#"
+    year: "2025"
   }
 ];
 ---
@@ -17,12 +16,11 @@ const publications = [
 
   <div class="max-w-3xl mx-auto">
     {publications.map((pub) => (
-      <div class="glass flex flex-col md:flex-row justify-between items-center gap-6 group hover:border-primary/30 transition-all p-10">
-        <div class="text-center md:text-left">
-          <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">“{pub.title}”</h3>
-          <p class="text-text-dim">{pub.journal} • <span class="text-primary font-bold">{pub.year}</span></p>
+      <div class="glass flex flex-col items-center gap-6 group hover:border-primary/30 transition-all p-10 text-center">
+        <div>
+          <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">“{pub.title}”</h3>
+          <p class="text-text-dim text-lg">{pub.journal} • <span class="text-primary font-bold">{pub.year}</span></p>
         </div>
-        <a href={pub.link} class="btn-outline py-2 px-6 text-sm">Leer Artículo</a>
       </div>
     ))}
   </div>
