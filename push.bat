@@ -1,5 +1,5 @@
 @echo off
 set "PATH=C:\Program Files\Git\bin;%PATH%"
 git add -A
-git commit -m "feat: setup local profile image and images directory"
+git commit -m "feat: add professional profile picture"
 git push origin main
