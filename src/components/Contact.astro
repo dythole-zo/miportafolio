@@ -13,21 +13,21 @@
         
         <div class="space-y-6">
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </div>
             <div>
-              <span class="block text-xs text-text-dim">Email</span>
-              <a href="mailto:diego.florezol@unipaz.edu.co" class="font-bold hover:text-primary transition-colors">diego.florezol@unipaz.edu.co</a>
+              <span class="block text-xs text-text-dim font-mono uppercase tracking-wider">Email</span>
+              <a href="mailto:diego.florezol@unipaz.edu.co" class="font-bold hover:text-primary transition-colors duration-300">diego.florezol@unipaz.edu.co</a>
             </div>
           </div>
           <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+            <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             </div>
             <div>
-              <span class="block text-xs text-text-dim">GitHub</span>
-              <a href="https://github.com/dythole-zo" target="_blank" class="font-bold hover:text-secondary transition-colors">github.com/dythole-zo</a>
+              <span class="block text-xs text-text-dim font-mono uppercase tracking-wider">GitHub</span>
+              <a href="https://github.com/dythole-zo" target="_blank" class="font-bold hover:text-secondary transition-colors duration-300">github.com/dythole-zo</a>
             </div>
           </div>
         </div>
@@ -35,16 +35,16 @@
 
       <form id="contact-form" class="space-y-6">
         <div>
-          <label class="block text-sm font-bold mb-2">Nombre *</label>
-          <input type="text" id="name" name="name" required placeholder="Tu nombre" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary transition-colors" />
+          <label class="block text-sm font-bold mb-2 font-mono tracking-wide">Nombre *</label>
+          <input type="text" id="name" name="name" required placeholder="Tu nombre" class="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300 placeholder:text-text-dim/50" />
         </div>
         <div>
-          <label class="block text-sm font-bold mb-2">Email *</label>
-          <input type="email" id="email" name="email" required placeholder="tu@email.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary transition-colors" />
+          <label class="block text-sm font-bold mb-2 font-mono tracking-wide">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com" class="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300 placeholder:text-text-dim/50" />
         </div>
         <div>
-          <label class="block text-sm font-bold mb-2">Mensaje *</label>
-          <textarea id="message" name="message" required rows="4" placeholder="¿En qué puedo ayudarte?" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary transition-colors resize-none"></textarea>
+          <label class="block text-sm font-bold mb-2 font-mono tracking-wide">Mensaje *</label>
+          <textarea id="message" name="message" required rows="4" placeholder="¿En qué puedo ayudarte?" class="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300 resize-none placeholder:text-text-dim/50"></textarea>
         </div>
         <button type="submit" id="submit-btn" class="btn-primary w-full">Enviar Mensaje</button>
         <p id="form-status" class="text-sm font-medium text-center hidden"></p>

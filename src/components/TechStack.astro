@@ -23,11 +23,11 @@ const skillCategories = [
 
   <div class="grid md:grid-cols-3 gap-8">
     {skillCategories.map((category) => (
-      <div class="glass group hover:border-primary/30 transition-all duration-500">
-        <h3 class="text-xl font-bold mb-6 text-primary">{category.name}</h3>
+      <div class="glass group hover:border-primary/25 transition-all duration-500">
+        <h3 class="text-xl font-bold mb-6 text-primary font-mono tracking-wide">{category.name}</h3>
         <div class="flex flex-wrap gap-3">
           {category.items.map((item) => (
-            <span class="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm font-medium hover:bg-white/10 transition-colors">
+            <span class="px-4 py-2 rounded-lg bg-white/5 border border-white/8 text-sm font-mono font-medium hover:bg-primary/8 hover:border-primary/20 hover:text-primary transition-all duration-300">
               {item}
             </span>
           ))}

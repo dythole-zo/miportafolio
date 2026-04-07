@@ -16,10 +16,10 @@ const publications = [
 
   <div class="max-w-3xl mx-auto">
     {publications.map((pub) => (
-      <div class="glass flex flex-col items-center gap-6 group hover:border-primary/30 transition-all p-10 text-center">
+      <div class="glass flex flex-col items-center gap-6 group hover:border-primary/25 transition-all duration-500 p-10 text-center">
         <div>
-          <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">“{pub.title}”</h3>
-          <p class="text-text-dim text-lg">{pub.journal} • <span class="text-primary font-bold">{pub.year}</span></p>
+          <h3 class="text-xl md:text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">"{pub.title}"</h3>
+          <p class="text-text-dim text-lg">{pub.journal} • <span class="text-primary font-bold font-mono">{pub.year}</span></p>
         </div>
       </div>
     ))}

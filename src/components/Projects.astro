@@ -25,24 +25,25 @@ const projects = [
 
   <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
     {projects.map((project) => (
-      <div class="glass p-0 overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500">
-        <div class="aspect-video overflow-hidden">
-          <img src={project.image} alt={project.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+      <div class="glass p-0 overflow-hidden group hover:border-primary/20 transition-all duration-500" style="box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+        <div class="aspect-video overflow-hidden relative">
+          <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <img src={project.image} alt={project.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
         <div class="p-8">
           <div class="flex gap-2 mb-4">
             {project.tags.map(tag => (
-              <span class="text-[10px] uppercase tracking-wider font-bold text-primary px-2 py-1 rounded bg-primary/10">
+              <span class="text-[10px] uppercase tracking-wider font-bold text-primary px-3 py-1 rounded-md bg-primary/8 border border-primary/15 font-mono">
                 {tag}
               </span>
             ))}
           </div>
-          <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
+          <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
           <p class="text-text-dim mb-6 text-sm leading-relaxed">
             {project.description}
           </p>
           <div class="bg-primary/5 border border-primary/10 p-4 rounded-xl">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Resultado Impactante</span>
+            <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1 font-mono">Resultado Impactante</span>
             <p class="text-white font-medium">{project.result}</p>
           </div>
         </div>
